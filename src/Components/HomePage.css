@@ -1,0 +1,49 @@
+.headingContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(163, 163, 163, 0.548);
+    padding: .5% 5%;
+    position: sticky;
+    top: 0;
+}
+.headerIcons{
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    display: flex;
+    gap: 20px;
+}
+.searchLoginContainer{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.searchLoginContainer button{
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+}
+.searchLoginContainer svg,
+.headerIcons svg{
+    font-size: 2.3em;
+    color: rgb(110, 110, 110);
+    cursor: pointer;
+    transition: .2s linear;
+}
+svg:hover{
+    color: black;
+}
+.searchLoginContainer button:last-child{
+    box-shadow: 0px 0px 4px rgb(112, 112, 112);
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: rgb(212, 212, 212);
+}
+.searchLoginContainer input{
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: white;
+    border: 0;
+    outline: 0;
+}

@@ -1,0 +1,19 @@
+.menu{
+    background: red;
+    padding: 0 10%;
+}
+.menu h3{
+    font-size: 3em;
+}
+.card{
+    background: brown;
+    padding: 20px;
+}
+.cardsContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.cardsContainer button{
+    padding: 5px;
+    margin: 5px 5px 5px 0;
+}

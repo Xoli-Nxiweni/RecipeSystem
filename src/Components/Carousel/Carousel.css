@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30em;
+    /* background: blue; */
+    overflow: hidden;
+    position: relative;
+    padding: 0 5%;
+    gap: 15px;
+}
+.container button{
+    padding: 2px;
+    border: 0;
+    background: #74747448;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.container button svg{
+    font-size: 5em;
+    color: #ffffff;
+}
+.carouselContent p,
+.carouselContent h1{
+   
+   color: #fff;
+}
+
+.texts{
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}

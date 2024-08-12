@@ -1,0 +1,21 @@
+.categories{
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10%;
+}
+.categories h3{
+    color: rgb(27, 20, 20);
+    font-size: 3em;
+}
+.formatCategs{
+    display: flex;
+    /* background: wheat; */
+    justify-content: space-between;
+    text-align: center;
+}
+.categs img{
+    background: green;
+    width: 20px;
+    border-radius: 50%;
+}
