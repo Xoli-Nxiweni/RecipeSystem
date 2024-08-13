@@ -6,14 +6,100 @@
     font-size: 3em;
 }
 .card{
-    /* background: brown; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
     padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px #afafaf;
+}
+.card img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
 }
 .cardsContainer{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+}
+.cardsBtn{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 .cardsContainer button{
     padding: 5px;
+    width: 70px;
     margin: 5px 5px 5px 0;
+    border: 0;
+    cursor: pointer;
+    transition: all .2s linear;
+    border-radius: 5px;
+    background: #000;
+    color: #fff;
+}
+.cardsContainer button:hover{
+    background: #555555;
+}
+.searchContainer{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+.searchContainer svg{
+    font-size: 2.5em;
+    color: rgb(110, 110, 110);
+    cursor: pointer;
+    transition: .2s linear;
+}
+svg:hover{
+    color: black;
+}
+.searchContainer input{
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: white;
+    border: 0;
+    outline: 0;
+}
+.searchContainer button{
+    
+    border-radius: 5px;
+    background: white;
+    border: 0;
+    outline: 0;
+}
+
+@media (max-width: 1773px) {
+    .cardsContainer{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+}
+@media (max-width: 1380px) {
+    .cardsContainer{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+}
+@media (max-width: 972px) {
+    .cardsContainer{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    .menu h3{
+        font-size: 2em;
+        text-align: center;
+    }
+}
+@media (max-width: 660px) {
+    .cardsContainer{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 25px;
+    }
 }

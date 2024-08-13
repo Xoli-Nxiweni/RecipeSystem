@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './App.css';
 import Heading from './Components/HomePage';
+import { Category } from './Components/Categories/Category';
 import { Head } from './Components/Head';
 import { Carousel } from './Components/Carousel/Carousel';
-// import { Category } from './Components/Categories/Category';
 import { LoginPage } from './Components/LoginPage';
 import { Menu } from './Components/Menu/Menu';
 import RecipeList from './Components/RecipeList';
@@ -15,17 +15,17 @@ function App() {
 
   return (
     <div className="wrapper">
+      <nav>
+        <Heading setIsSignedIn={setIsSignedIn} />
+      </nav>
       {isSignedIn ? (
         <>
-          <nav>
-            <Heading setIsSignedIn={setIsSignedIn} /> {/* Pass setIsSignedIn here */}
-          </nav>
           <section>
             <Head />
           </section>
           <article>
             <Carousel />
-            {/* <Category /> */}
+            <Category />
             <Menu />
             <RecipeList />
           </article>

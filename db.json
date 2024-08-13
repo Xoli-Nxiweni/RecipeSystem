@@ -10,7 +10,7 @@
     {
       "id": 1,
       "title": "Spaghetti Carbonara",
-      "imgSrc": "https://images.unsplash.com/photo-1546180997-c7d83f620c5b",
+      "imgSrc": "https://images.ctfassets.net/3vz37y2qhojh/4B2QkY3grTx5oigHJQou1f/a8326779160ea8024265a87c96923763/Olga_30MnSpgCarbonara_Hero-Horizontal-Olga-Ivanova-V3.jpg",
       "description": "Classic Italian pasta with a creamy egg and cheese sauce.",
       "ingredients": "Spaghetti, eggs, parmesan, pancetta, garlic",
       "instructions": "Cook spaghetti. In a bowl, mix eggs and cheese. Cook pancetta, add garlic, and mix with pasta and egg mixture."
@@ -18,7 +18,7 @@
     {
       "id": 2,
       "title": "Chicken Alfredo",
-      "imgSrc": "https://images.unsplash.com/photo-1614697696705-2c6d79a679c5",
+      "imgSrc": "https://thecozycook.com/wp-content/uploads/2022/08/Chicken-Alfredo-Pasta-1-1.jpg",
       "description": "Creamy Alfredo sauce with tender chicken.",
       "ingredients": "Chicken breast, fettuccine, heavy cream, garlic, parmesan",
       "instructions": "Cook fettuccine. Sauté chicken and garlic. Add cream and cheese. Mix with pasta."
@@ -26,7 +26,7 @@
     {
       "id": 3,
       "title": "Beef Stroganoff",
-      "imgSrc": "https://images.unsplash.com/photo-1582431948562-6f6ec2d0d32b",
+      "imgSrc": "https://www.allrecipes.com/thmb/mSWde3PHTu-fDkbvWBw0D1JlS8U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/25202beef-stroganoff-iii-ddmfs-3x4-233-0f26fa477e9c446b970a32502468efc6.jpg",
       "description": "Rich and creamy beef stew with mushrooms.",
       "ingredients": "Beef sirloin, mushrooms, onions, sour cream, beef broth",
       "instructions": "Sauté beef and onions. Add mushrooms and broth. Stir in sour cream before serving."
@@ -34,7 +34,7 @@
     {
       "id": 4,
       "title": "Vegetable Stir-Fry",
-      "imgSrc": "https://images.unsplash.com/photo-1617262976923-91df3d0e8e30",
+      "imgSrc": "https://peasandcrayons.com/wp-content/uploads/2020/12/vegetable-stir-fry-noodles-recipe-.jpg",
       "description": "A quick and healthy mix of fresh vegetables.",
       "ingredients": "Bell peppers, broccoli, carrots, soy sauce, garlic",
       "instructions": "Stir-fry vegetables with garlic and soy sauce."
@@ -42,7 +42,7 @@
     {
       "id": 5,
       "title": "Chicken Tikka Masala",
-      "imgSrc": "https://images.unsplash.com/photo-1592728857085-fc42d225fe22",
+      "imgSrc": "https://bellyfull.net/wp-content/uploads/2021/05/Chicken-Tikka-Masala-blog.jpg",
       "description": "Spicy and creamy chicken curry.",
       "ingredients": "Chicken, yogurt, tomatoes, garlic, spices",
       "instructions": "Marinate chicken, then cook with spices and tomatoes. Add cream before serving."
@@ -50,7 +50,7 @@
     {
       "id": 6,
       "title": "Beef Tacos",
-      "imgSrc": "https://images.unsplash.com/photo-1603193062613-6ef12e5d37a1",
+      "imgSrc": "https://www.browneyedbaker.com/wp-content/uploads/2016/01/ground-beef-tacos-4-600-600x760.jpg",
       "description": "Flavorful beef tacos with fresh toppings.",
       "ingredients": "Ground beef, taco seasoning, tortillas, lettuce, cheese",
       "instructions": "Cook beef with seasoning. Serve in tortillas with toppings."
@@ -58,7 +58,7 @@
     {
       "id": 7,
       "title": "Lemon Garlic Shrimp",
-      "imgSrc": "https://images.unsplash.com/photo-1504674900247-0877df1e7e5e",
+      "imgSrc": "https://www.thefoodblog.net/wp-content/uploads/2019/06/Grilled-Shrimp-2-of-5.jpg",
       "description": "Shrimp cooked in a zesty lemon garlic sauce.",
       "ingredients": "Shrimp, lemon, garlic, butter",
       "instructions": "Sauté shrimp with garlic and lemon juice. Add butter before serving."
@@ -66,7 +66,7 @@
     {
       "id": 8,
       "title": "Greek Salad",
-      "imgSrc": "https://images.unsplash.com/photo-1578562086650-c19ad421e5e8",
+      "imgSrc": "https://www.cookingclassy.com/wp-content/uploads/2018/02/greek-salad-4-500x500.jpg",
       "description": "Fresh salad with feta and olives.",
       "ingredients": "Tomatoes, cucumbers, feta, olives, red onions",
       "instructions": "Mix vegetables with feta and olives. Dress with olive oil and herbs."
@@ -74,7 +74,7 @@
     {
       "id": 9,
       "title": "Margherita Pizza",
-      "imgSrc": "https://images.unsplash.com/photo-1598528811379-810e8e0d76f5",
+      "imgSrc": "https://www.sainsburysmagazine.co.uk/uploads/media/2400x1800/09/7699-Margherita-pizza.jpg?v=1-0",
       "description": "Classic pizza with tomatoes, mozzarella, and basil.",
       "ingredients": "Pizza dough, tomato sauce, mozzarella, basil",
       "instructions": "Spread sauce on dough. Add cheese and basil. Bake until golden."
@@ -82,7 +82,7 @@
     {
       "id": 10,
       "title": "Butternut Squash Soup",
-      "imgSrc": "https://images.unsplash.com/photo-1601009311214-6b75c4f2f5c6",
+      "imgSrc": "https://assets.epicurious.com/photos/64e3dc5e2b2b52d7cfe90da8/16:9/w_5482,h_3084,c_limit/Butternut-Squash-Soup_Recipe_081723_1599.jpg",
       "description": "Smooth and creamy soup with butternut squash.",
       "ingredients": "Butternut squash, onion, garlic, vegetable broth, cream",
       "instructions": "Cook squash and onions. Blend with broth and cream until smooth."
@@ -90,7 +90,7 @@
     {
       "id": 11,
       "title": "Beef Wellington",
-      "imgSrc": "https://images.unsplash.com/photo-1545903462-6b22c6f5f792",
+      "imgSrc": "https://www.foodandwine.com/thmb/2k2Kq24_fMvHCyLMPRSNrpg5QdE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/beef-wellington-FT-RECIPE0321-c9a63fccde3b45889ad78fdad078153f.jpg",
       "description": "Tender beef wrapped in puff pastry.",
       "ingredients": "Beef tenderloin, puff pastry, mushrooms, prosciutto",
       "instructions": "Sear beef, then wrap in mushrooms, prosciutto, and pastry. Bake until golden."
@@ -98,7 +98,7 @@
     {
       "id": 12,
       "title": "Quiche Lorraine",
-      "imgSrc": "https://images.unsplash.com/photo-1598471653167-05b290872424",
+      "imgSrc": "https://img.taste.com.au/YJpViwnl/w1200-h630-cfill/taste/2017/02/classic-quiche-lorraine-121391-2.jpg",
       "description": "Savory quiche with bacon and cheese.",
       "ingredients": "Pie crust, eggs, cream, bacon, cheese",
       "instructions": "Mix eggs and cream. Add bacon and cheese. Pour into crust and bake."
@@ -106,7 +106,7 @@
     {
       "id": 13,
       "title": "Chicken Caesar Salad",
-      "imgSrc": "https://images.unsplash.com/photo-1598580094843-f0a54867b1cc",
+      "imgSrc": "https://s23209.pcdn.co/wp-content/uploads/2023/01/220905_DD_Chx-Caesar-Salad_051.jpg",
       "description": "Crisp salad with grilled chicken and Caesar dressing.",
       "ingredients": "Chicken breast, romaine lettuce, croutons, Caesar dressing",
       "instructions": "Grill chicken. Toss lettuce with dressing, chicken, and croutons."
@@ -114,7 +114,7 @@
     {
       "id": 14,
       "title": "Pancakes",
-      "imgSrc": "https://images.unsplash.com/photo-1568098508-c9786b63b6e0",
+      "imgSrc": "https://www.inspiredtaste.net/wp-content/uploads/2024/03/Easy-Fluffy-Pancakes-Recipe-Video.jpg",
       "description": "Fluffy pancakes perfect for breakfast.",
       "ingredients": "Flour, eggs, milk, sugar, baking powder",
       "instructions": "Mix ingredients and cook on a griddle until golden."
@@ -122,7 +122,7 @@
     {
       "id": 15,
       "title": "Ratatouille",
-      "imgSrc": "https://images.unsplash.com/photo-1603735489116-6b2d468b0e02",
+      "imgSrc": "https://api.vip.foodnetwork.ca/wp-content/uploads/2022/05/summer-rainbow-ratatouille.jpg",
       "description": "Classic French vegetable stew.",
       "ingredients": "Eggplant, zucchini, bell peppers, tomatoes",
       "instructions": "Sauté vegetables with herbs until tender."
@@ -130,7 +130,7 @@
     {
       "id": 16,
       "title": "Lamb Chops",
-      "imgSrc": "https://images.unsplash.com/photo-1598086180621-094cd67e2921",
+      "imgSrc": "https://www.dinneratthezoo.com/wp-content/uploads/2021/03/grilled-lamb-chops-final-2.jpg",
       "description": "Grilled lamb chops with rosemary.",
       "ingredients": "Lamb chops, rosemary, garlic, olive oil",
       "instructions": "Marinate lamb with rosemary and garlic. Grill until cooked."
@@ -138,7 +138,7 @@
     {
       "id": 17,
       "title": "Chicken Noodle Soup",
-      "imgSrc": "https://images.unsplash.com/photo-1555685810-d1c1e807d9d7",
+      "imgSrc": "https://www.cubesnjuliennes.com/wp-content/uploads/2022/01/Homemade-Chicken-Noodle-Soup-Recipe.jpg",
       "description": "Comforting soup with chicken and noodles.",
       "ingredients": "Chicken, noodles, carrots, celery, chicken broth",
       "instructions": "Cook chicken and vegetables in broth. Add noodles and cook until tender."
@@ -146,7 +146,7 @@
     {
       "id": 18,
       "title": "Sushi Rolls",
-      "imgSrc": "https://images.unsplash.com/photo-1589898309483-2b63d8ff0f2c",
+      "imgSrc": "https://foreignfork.com/wp-content/uploads/2023/05/DragonRoll-FEATURE-500x500.jpg",
       "description": "Fresh sushi rolls with assorted fillings.",
       "ingredients": "Sushi rice, nori, fish, vegetables",
       "instructions": "Prepare rice and fillings. Roll in nori and slice."
@@ -154,7 +154,7 @@
     {
       "id": 19,
       "title": "Apple Pie",
-      "imgSrc": "https://images.unsplash.com/photo-1578515103758-7e0848f0b0b7",
+      "imgSrc": "https://recipe30.com/wp-content/uploads/2020/11/Apple-pie.jpg",
       "description": "Classic dessert with spiced apples.",
       "ingredients": "Apples, pie crust, sugar, cinnamon",
       "instructions": "Fill crust with spiced apples and bake until golden."
@@ -162,7 +162,7 @@
     {
       "id": 20,
       "title": "Tiramisu",
-      "imgSrc": "https://images.unsplash.com/photo-1506748686214e9df14b457d4d6b",
+      "imgSrc": "https://natashaskitchen.com/wp-content/uploads/2024/04/Tiramisu-Cake-13.jpg",
       "description": "Layered Italian dessert with coffee and mascarpone.",
       "ingredients": "Mascarpone cheese, coffee, ladyfingers, cocoa powder",
       "instructions": "Layer ladyfingers with mascarpone mixture and coffee. Dust with cocoa powder."

@@ -1,21 +1,25 @@
 import { useState, useEffect } from 'react';
-import { addRecipe, updateRecipe } from './API'
+import { addRecipe, updateRecipe } from './API';
 
 // eslint-disable-next-line react/prop-types
 const RecipeForm = ({ recipeToEdit, onSave }) => {
   const [formData, setFormData] = useState({
-    name: '',
+    title: '',
+    description: '',
     ingredients: '',
-    instructions: '',
-    category: '',
-    prepTime: '',
-    cookTime: '',
-    servings: ''
+    imgSrc: ''
   });
 
   useEffect(() => {
     if (recipeToEdit) {
       setFormData(recipeToEdit);
+    } else {
+      setFormData({
+        title: '',
+        description: '',
+        ingredients: '',
+        imgSrc: ''
+      });
     }
   }, [recipeToEdit]);
 
@@ -27,7 +31,6 @@ const RecipeForm = ({ recipeToEdit, onSave }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (recipeToEdit) {
-      // eslint-disable-next-line react/prop-types
       await updateRecipe(recipeToEdit.id, formData);
     } else {
       await addRecipe(formData);
@@ -37,13 +40,10 @@ const RecipeForm = ({ recipeToEdit, onSave }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input name="name" value={formData.name} onChange={handleChange} placeholder="Recipe Name" required />
+      <input name="title" value={formData.title} onChange={handleChange} placeholder="Title" required />
+      <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Description" required />
       <textarea name="ingredients" value={formData.ingredients} onChange={handleChange} placeholder="Ingredients" required />
-      <textarea name="instructions" value={formData.instructions} onChange={handleChange} placeholder="Instructions" required />
-      <input name="category" value={formData.category} onChange={handleChange} placeholder="Category" required />
-      <input name="prepTime" value={formData.prepTime} onChange={handleChange} placeholder="Preparation Time" required />
-      <input name="cookTime" value={formData.cookTime} onChange={handleChange} placeholder="Cooking Time" required />
-      <input name="servings" value={formData.servings} onChange={handleChange} placeholder="Servings" required />
+      <input name="imgSrc" value={formData.imgSrc} onChange={handleChange} placeholder="Image URL" required />
       <button type="submit">Save Recipe</button>
     </form>
   );

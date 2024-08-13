@@ -1,66 +1,67 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Carousel.css';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 export const Carousel = () => {
-    const images = [
+    const recipes = [
         {
-            src: 'https://images.unsplash.com/photo-1527766833261-b09c3163a791?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc1ODh8MHwxfGFsbHwxfHx8fHx8fHwxNjY2MDA0ODQz&ixlib=rb-1.2.1&q=80&w=1080', 
-            text: 'Explore the beauty of nature in Image 1.',
-            heading: 'Nature Escapes'
+            image: 'https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/06/THUMB-LINK-2020-2.jpg',
+            name: 'Spaghetti Carbonara',
+            description: 'A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.'
         },
         {
-            src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc1ODh8MHwxfGFsbHwxfHx8fHx8fHwxNjY2MDA2ODUw&ixlib=rb-1.2.1&q=80&w=1080',
-            text: 'Discover the architectural wonders in Image 2.',
-            heading: 'Architectural Marvels'
+            image: 'https://www.onceuponachef.com/images/2023/08/Beef-Tacos.jpg',
+            name: 'Tacos',
+            description: 'Soft or crispy tortillas filled with a variety of meats, beans, and toppings.'
         },
         {
-            src: 'https://images.unsplash.com/photo-1518628576179-92eac1e86591?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc1ODh8MHwxfGFsbHwxfHx8fHx8fHwxNjY2MDA3MjU0&ixlib=rb-1.2.1&q=80&w=1080',
-            text: 'Delve into the vibrant culture in Image 3.',
-            heading: 'Cultural Heritage'
+            image: 'https://itsavegworldafterall.com/wp-content/uploads/2023/04/Avocado-Caesar-Salad-FI-500x375.jpg',
+            name: 'Caesar Salad',
+            description: 'A crisp salad with romaine lettuce, Parmesan cheese, croutons, and Caesar dressing.'
         },
         {
-            src: 'https://images.unsplash.com/photo-1504386106331-3e4e71712b38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc1ODh8MHwxfGFsbHwxfHx8fHx8fHwxNjY2MDA4MDUz&ixlib=rb-1.2.1&q=80&w=1080',
-            text: 'Experience the thrill of adventure in Image 4.',
-            heading: 'Adventure Awaits'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1522050214677-9545c7a9f07b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc1ODh8MHwxfGFsbHwxfHx8fHx8fHwxNjY2MDA4MTIz&ixlib=rb-1.2.1&q=80&w=1080',
-            text: 'Relax by the serene waters in Image 5.',
-            heading: 'Serenity by the Water'
+            image: 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1043451_11-4713959.jpg',
+            name: 'Chocolate Cake',
+            description: 'Rich and moist chocolate cake with a creamy chocolate frosting.'
         }
     ];
-    
-    
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    useEffect(() => {
+        const autoPlay = setInterval(() => {
+            handleNextClick();
+        }, 3000); // Change slide every 5 seconds
+
+        return () => clearInterval(autoPlay); // Cleanup interval on component unmount
+    }, [currentIndex]);
+
     const handlePrevClick = () => {
-        const isFirstSlide = currentIndex === 0;
-        const newIndex = isFirstSlide ? images.length - 1 : currentIndex - 1;
-        setCurrentIndex(newIndex);
+        setCurrentIndex((prevIndex) => (prevIndex === 0 ? recipes.length - 1 : prevIndex - 1));
     };
 
     const handleNextClick = () => {
-        const isLastSlide = currentIndex === images.length - 1;
-        const newIndex = isLastSlide ? 0 : currentIndex + 1;
-        setCurrentIndex(newIndex);
+        setCurrentIndex((prevIndex) => (prevIndex === recipes.length - 1 ? 0 : prevIndex + 1));
     };
 
     return (
         <div className='Carousel'>
             <div className="container">
-                <button onClick={handlePrevClick}><ArrowLeftIcon /></button>
+                <button onClick={handlePrevClick} className='carouselLeft'>
+                    <ArrowLeftIcon />
+                </button>
                 <div className="carouselContent">
-                    <img src={images[currentIndex].src} alt="carousel" />
+                    <img src={recipes[currentIndex].image} alt={recipes[currentIndex].name} />
                     <div className="texts">
-                    <p>{images[currentIndex].text}</p>
-                    <h1>{images[currentIndex].heading}</h1>
+                        <h1>{recipes[currentIndex].name}</h1>
+                        <p>{recipes[currentIndex].description}</p>
                     </div>
                 </div>
-                <button onClick={handleNextClick}><ArrowRightIcon /></button>
+                <button onClick={handleNextClick} className='carouselRight'>
+                    <ArrowRightIcon />
+                </button>
             </div>
         </div>
     );
-}
+};

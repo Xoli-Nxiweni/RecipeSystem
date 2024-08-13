@@ -1,36 +1,65 @@
-.container{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10em;
-    /* background: blue; */
+    height: 20em;
     overflow: hidden;
     position: relative;
-    padding: 0 5%;
     gap: 15px;
-}
-.container button{
-    border: 0;
-    /* background: #74747448; */
-    cursor: pointer;
-    border-radius: 50%;
-}
-.container button svg{
-    font-size: 5em;
-    color: #000000;
-}
-.carouselContent p,
-.carouselContent h1{
-   text-align: center;
-   color: #fff;
+    margin: 0 10%;
 }
 
-.texts{
+.container button {
+    border: 0;
+    background: rgba(116, 116, 116, 0.3); 
+    cursor: pointer;
+    border-radius: 15%; /* Circular buttons */
+    padding: 10px; 
+}
+
+.container button svg {
+    font-size: 3em; /* Reduced font size for better fit */
+    color: #000; /* Ensures better visibility on light backgrounds */
+}
+
+.carouselContent {
+    position: relative;
+    /* width: 100%; */
+    /* height: 100%; */
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.carouselContent p,
+.carouselContent h1 {
+    text-align: center;
+    font-size: 1.2em;
+    color: #fff;
+    margin: 0;
+}
+
+.texts {
     position: absolute;
     bottom: 10px;
-    left: 0;
-    right: 0;
-    margin: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 1387px) {
+    .container button svg {
+        font-size: 3em; /* Adjusted for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 0 5%; /* Reduce margin on smaller screens */
+    }
+    .container button svg {
+        font-size: 2.5em; /* Smaller buttons for smaller screens */
+    }
 }
