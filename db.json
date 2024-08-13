@@ -1,5 +1,171 @@
 {
-    "users": [],
-    "recipes": []
-  }
-  
+  "users": [
+    {
+      "id": "9b74",
+      "username": "admin",
+      "password": "awe"
+    }
+  ],
+  "recipes": [
+    {
+      "id": 1,
+      "title": "Spaghetti Carbonara",
+      "imgSrc": "https://images.unsplash.com/photo-1546180997-c7d83f620c5b",
+      "description": "Classic Italian pasta with a creamy egg and cheese sauce.",
+      "ingredients": "Spaghetti, eggs, parmesan, pancetta, garlic",
+      "instructions": "Cook spaghetti. In a bowl, mix eggs and cheese. Cook pancetta, add garlic, and mix with pasta and egg mixture."
+    },
+    {
+      "id": 2,
+      "title": "Chicken Alfredo",
+      "imgSrc": "https://images.unsplash.com/photo-1614697696705-2c6d79a679c5",
+      "description": "Creamy Alfredo sauce with tender chicken.",
+      "ingredients": "Chicken breast, fettuccine, heavy cream, garlic, parmesan",
+      "instructions": "Cook fettuccine. Sauté chicken and garlic. Add cream and cheese. Mix with pasta."
+    },
+    {
+      "id": 3,
+      "title": "Beef Stroganoff",
+      "imgSrc": "https://images.unsplash.com/photo-1582431948562-6f6ec2d0d32b",
+      "description": "Rich and creamy beef stew with mushrooms.",
+      "ingredients": "Beef sirloin, mushrooms, onions, sour cream, beef broth",
+      "instructions": "Sauté beef and onions. Add mushrooms and broth. Stir in sour cream before serving."
+    },
+    {
+      "id": 4,
+      "title": "Vegetable Stir-Fry",
+      "imgSrc": "https://images.unsplash.com/photo-1617262976923-91df3d0e8e30",
+      "description": "A quick and healthy mix of fresh vegetables.",
+      "ingredients": "Bell peppers, broccoli, carrots, soy sauce, garlic",
+      "instructions": "Stir-fry vegetables with garlic and soy sauce."
+    },
+    {
+      "id": 5,
+      "title": "Chicken Tikka Masala",
+      "imgSrc": "https://images.unsplash.com/photo-1592728857085-fc42d225fe22",
+      "description": "Spicy and creamy chicken curry.",
+      "ingredients": "Chicken, yogurt, tomatoes, garlic, spices",
+      "instructions": "Marinate chicken, then cook with spices and tomatoes. Add cream before serving."
+    },
+    {
+      "id": 6,
+      "title": "Beef Tacos",
+      "imgSrc": "https://images.unsplash.com/photo-1603193062613-6ef12e5d37a1",
+      "description": "Flavorful beef tacos with fresh toppings.",
+      "ingredients": "Ground beef, taco seasoning, tortillas, lettuce, cheese",
+      "instructions": "Cook beef with seasoning. Serve in tortillas with toppings."
+    },
+    {
+      "id": 7,
+      "title": "Lemon Garlic Shrimp",
+      "imgSrc": "https://images.unsplash.com/photo-1504674900247-0877df1e7e5e",
+      "description": "Shrimp cooked in a zesty lemon garlic sauce.",
+      "ingredients": "Shrimp, lemon, garlic, butter",
+      "instructions": "Sauté shrimp with garlic and lemon juice. Add butter before serving."
+    },
+    {
+      "id": 8,
+      "title": "Greek Salad",
+      "imgSrc": "https://images.unsplash.com/photo-1578562086650-c19ad421e5e8",
+      "description": "Fresh salad with feta and olives.",
+      "ingredients": "Tomatoes, cucumbers, feta, olives, red onions",
+      "instructions": "Mix vegetables with feta and olives. Dress with olive oil and herbs."
+    },
+    {
+      "id": 9,
+      "title": "Margherita Pizza",
+      "imgSrc": "https://images.unsplash.com/photo-1598528811379-810e8e0d76f5",
+      "description": "Classic pizza with tomatoes, mozzarella, and basil.",
+      "ingredients": "Pizza dough, tomato sauce, mozzarella, basil",
+      "instructions": "Spread sauce on dough. Add cheese and basil. Bake until golden."
+    },
+    {
+      "id": 10,
+      "title": "Butternut Squash Soup",
+      "imgSrc": "https://images.unsplash.com/photo-1601009311214-6b75c4f2f5c6",
+      "description": "Smooth and creamy soup with butternut squash.",
+      "ingredients": "Butternut squash, onion, garlic, vegetable broth, cream",
+      "instructions": "Cook squash and onions. Blend with broth and cream until smooth."
+    },
+    {
+      "id": 11,
+      "title": "Beef Wellington",
+      "imgSrc": "https://images.unsplash.com/photo-1545903462-6b22c6f5f792",
+      "description": "Tender beef wrapped in puff pastry.",
+      "ingredients": "Beef tenderloin, puff pastry, mushrooms, prosciutto",
+      "instructions": "Sear beef, then wrap in mushrooms, prosciutto, and pastry. Bake until golden."
+    },
+    {
+      "id": 12,
+      "title": "Quiche Lorraine",
+      "imgSrc": "https://images.unsplash.com/photo-1598471653167-05b290872424",
+      "description": "Savory quiche with bacon and cheese.",
+      "ingredients": "Pie crust, eggs, cream, bacon, cheese",
+      "instructions": "Mix eggs and cream. Add bacon and cheese. Pour into crust and bake."
+    },
+    {
+      "id": 13,
+      "title": "Chicken Caesar Salad",
+      "imgSrc": "https://images.unsplash.com/photo-1598580094843-f0a54867b1cc",
+      "description": "Crisp salad with grilled chicken and Caesar dressing.",
+      "ingredients": "Chicken breast, romaine lettuce, croutons, Caesar dressing",
+      "instructions": "Grill chicken. Toss lettuce with dressing, chicken, and croutons."
+    },
+    {
+      "id": 14,
+      "title": "Pancakes",
+      "imgSrc": "https://images.unsplash.com/photo-1568098508-c9786b63b6e0",
+      "description": "Fluffy pancakes perfect for breakfast.",
+      "ingredients": "Flour, eggs, milk, sugar, baking powder",
+      "instructions": "Mix ingredients and cook on a griddle until golden."
+    },
+    {
+      "id": 15,
+      "title": "Ratatouille",
+      "imgSrc": "https://images.unsplash.com/photo-1603735489116-6b2d468b0e02",
+      "description": "Classic French vegetable stew.",
+      "ingredients": "Eggplant, zucchini, bell peppers, tomatoes",
+      "instructions": "Sauté vegetables with herbs until tender."
+    },
+    {
+      "id": 16,
+      "title": "Lamb Chops",
+      "imgSrc": "https://images.unsplash.com/photo-1598086180621-094cd67e2921",
+      "description": "Grilled lamb chops with rosemary.",
+      "ingredients": "Lamb chops, rosemary, garlic, olive oil",
+      "instructions": "Marinate lamb with rosemary and garlic. Grill until cooked."
+    },
+    {
+      "id": 17,
+      "title": "Chicken Noodle Soup",
+      "imgSrc": "https://images.unsplash.com/photo-1555685810-d1c1e807d9d7",
+      "description": "Comforting soup with chicken and noodles.",
+      "ingredients": "Chicken, noodles, carrots, celery, chicken broth",
+      "instructions": "Cook chicken and vegetables in broth. Add noodles and cook until tender."
+    },
+    {
+      "id": 18,
+      "title": "Sushi Rolls",
+      "imgSrc": "https://images.unsplash.com/photo-1589898309483-2b63d8ff0f2c",
+      "description": "Fresh sushi rolls with assorted fillings.",
+      "ingredients": "Sushi rice, nori, fish, vegetables",
+      "instructions": "Prepare rice and fillings. Roll in nori and slice."
+    },
+    {
+      "id": 19,
+      "title": "Apple Pie",
+      "imgSrc": "https://images.unsplash.com/photo-1578515103758-7e0848f0b0b7",
+      "description": "Classic dessert with spiced apples.",
+      "ingredients": "Apples, pie crust, sugar, cinnamon",
+      "instructions": "Fill crust with spiced apples and bake until golden."
+    },
+    {
+      "id": 20,
+      "title": "Tiramisu",
+      "imgSrc": "https://images.unsplash.com/photo-1506748686214e9df14b457d4d6b",
+      "description": "Layered Italian dessert with coffee and mascarpone.",
+      "ingredients": "Mascarpone cheese, coffee, ladyfingers, cocoa powder",
+      "instructions": "Layer ladyfingers with mascarpone mixture and coffee. Dust with cocoa powder."
+    }
+  ]
+}

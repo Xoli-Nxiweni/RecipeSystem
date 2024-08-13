@@ -1,11 +1,11 @@
-import React from 'react'
+
 import './Head.css'
 
 export const Head = () => {
   return (
     <div className="head">
         <h1>Tastebyte</h1>
-        <div className="Pages">
+        {/* <div className="Pages">
             <select name="Category">
                 <option>Homepage</option>
             </select>
@@ -18,7 +18,7 @@ export const Head = () => {
             <select name="Category">
                 <option>Buy</option>
             </select>
-        </div>
+        </div> */}
     </div>
   )
 }

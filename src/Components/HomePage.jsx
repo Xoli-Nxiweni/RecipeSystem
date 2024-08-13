@@ -3,11 +3,39 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import SearchIcon from '@mui/icons-material/Search';
+import { fetchRecipes } from './API'; // Import your API functions
 import './HomePage.css';
 
-const Heading = () => {
+// eslint-disable-next-line react/prop-types
+const Heading = ({ setIsSignedIn }) => {
     const [isSearching, setIsSearching] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
+    const [recipes, setRecipes] = useState([]);
+    const [filteredRecipes, setFilteredRecipes] = useState([]);
+
+    useEffect(() => {
+        // Fetch recipes when component mounts
+        const loadRecipes = async () => {
+            const fetchedRecipes = await fetchRecipes();
+            setRecipes(fetchedRecipes);
+            setFilteredRecipes(fetchedRecipes); // Initialize filtered recipes
+        };
+
+        loadRecipes();
+    }, []);
+
+    useEffect(() => {
+        // Filter recipes based on search term
+        if (searchTerm) {
+            setFilteredRecipes(
+                recipes.filter(recipe =>
+                    recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+                )
+            );
+        } else {
+            setFilteredRecipes(recipes);
+        }
+    }, [searchTerm, recipes]);
 
     const handleSearchTerm = (e) => {
         setSearchTerm(e.target.value);
@@ -15,16 +43,15 @@ const Heading = () => {
 
     const toggleSearch = () => {
         setIsSearching(!isSearching);
-        setSearchTerm(''); // Clear the search input when toggling off
+        if (isSearching) {
+            setSearchTerm(''); // Clear the search input when toggling off
+        }
     };
 
-    useEffect(() => {
-        if (searchTerm) {
-            // Perform search logic here with your own data
-            console.log("Searching for:", searchTerm);
-            // Example: You can filter your data and set results in state
-        }
-    }, [searchTerm]);
+    const handleLogout = () => {
+        localStorage.removeItem('user'); 
+        setIsSignedIn(false); 
+    };
 
     return (
         <div className="headingContainer">
@@ -45,9 +72,18 @@ const Heading = () => {
                 <button onClick={toggleSearch}>
                     <SearchIcon />
                 </button>
-                <button className="Login">Sign Out</button>
+                <button className="Login" onClick={handleLogout}>Sign Out</button>
             </div>
-            {/* If you have search results, render them here */}
+            {isSearching && filteredRecipes.length > 0 && (
+                <div className="searchResults">
+                    {filteredRecipes.map(recipe => (
+                        <div key={recipe.id} className="searchResultItem">
+                            <img src={recipe.imgSrc} alt={recipe.title} />
+                            <p>{recipe.title}</p>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

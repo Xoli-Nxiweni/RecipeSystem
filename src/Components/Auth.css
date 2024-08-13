@@ -1,0 +1,58 @@
+.auth-container{
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+::placeholder{
+    text-align: center;
+}
+.myForm{
+    border: 1px solid #0000002d;
+    padding: 50px;
+    border-radius: 15px;
+    text-align: center;
+    width: 420px;
+    box-shadow: 0 0 2px 0 #0000006c;
+}
+.myForm h2{
+    color: #000000;
+    margin: 0 0 20px 0;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+form input{
+    width: 100%;
+    height: 50px;
+    outline: none;
+    padding: 0 20px;
+    border: 0;
+    letter-spacing: 2px;
+    background: rgb(202, 202, 202);
+
+}
+form input:focus{
+    border: 0;
+}
+form button{
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 10px;
+}
+.auth-container button{
+    background: rgb(144, 144, 144);
+    margin: 10px 0;
+    outline: none;
+    border: 0;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 10px;
+}

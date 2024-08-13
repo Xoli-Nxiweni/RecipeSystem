@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: outfit;
 }
 body{
     background: whitesmoke;
@@ -13,4 +14,8 @@ body{
 ::-webkit-scrollbar-thumb{
     background: #c6c6c6;
     border-radius: 50px;
+}
+::selection{
+    background: rgb(0, 0, 0);
+    color: #c6c6c6;
 }

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30em;
+    height: 10em;
     /* background: blue; */
     overflow: hidden;
     position: relative;
@@ -10,25 +10,27 @@
     gap: 15px;
 }
 .container button{
-    padding: 2px;
     border: 0;
-    background: #74747448;
+    /* background: #74747448; */
     cursor: pointer;
     border-radius: 50%;
 }
 .container button svg{
     font-size: 5em;
-    color: #ffffff;
+    color: #000000;
 }
 .carouselContent p,
 .carouselContent h1{
-   
+   text-align: center;
    color: #fff;
 }
 
 .texts{
     position: absolute;
     bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
     display: flex;
     flex-direction: column;
 }

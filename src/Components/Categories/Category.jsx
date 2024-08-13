@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Category.css';
 
 const categories = [
-  { name: 'Technology', imgSrc: 'tech.jpg' },
-  { name: 'Health', imgSrc: 'health.jpg' },
-  { name: 'Science', imgSrc: 'science.jpg' },
-  { name: 'Business', imgSrc: 'business.jpg' },
-  { name: 'Sports', imgSrc: 'sports.jpg' }
+  { name: 'burger', imgSrc: 'tech.jpg' },
+  { name: 'burger', imgSrc: 'health.jpg' },
+  { name: 'burger', imgSrc: 'science.jpg' },
+  { name: 'burger', imgSrc: 'business.jpg' },
+  { name: 'burger', imgSrc: 'sports.jpg' }
 ];
 
 export const Category = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  console.log(selectedCategory);
+  
 
   const handleChangeCategory = (category) => {
     setSelectedCategory(category);

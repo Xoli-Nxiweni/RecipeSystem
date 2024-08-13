@@ -1,12 +1,12 @@
 .menu{
-    background: red;
+    /* background: red; */
     padding: 0 10%;
 }
 .menu h3{
     font-size: 3em;
 }
 .card{
-    background: brown;
+    /* background: brown; */
     padding: 20px;
 }
 .cardsContainer{
