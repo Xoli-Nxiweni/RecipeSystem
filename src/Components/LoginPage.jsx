@@ -10,10 +10,9 @@ export const LoginPage = ({ setIsSignedIn, setIsRegistered }) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    // Check if user is already signed in
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
-      setIsSignedIn(true); // Update sign-in state
+      setIsSignedIn(true);
     }
   }, [setIsSignedIn]);
 
@@ -53,8 +52,8 @@ export const LoginPage = ({ setIsSignedIn, setIsRegistered }) => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('user'); // Clear user session
-    setIsSignedIn(false); // Update sign-in state
+    localStorage.removeItem('user'); 
+    setIsSignedIn(false); 
   };
 
   return (

@@ -1,22 +1,22 @@
 .auth-container{
-    background: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    width: 100%;
+    /* height: 100vh; */
 
 }
 ::placeholder{
     text-align: center;
 }
 .myForm{
-    border: 1px solid #0000002d;
+    /* border: 1px solid #0000002d; */
     padding: 50px;
     border-radius: 15px;
     text-align: center;
-    width: 420px;
-    box-shadow: 0 0 2px 0 #0000006c;
+    width: 450px;
+    /* box-shadow: 0 0 2px 0 #0000006c; */
 }
 .myForm h2{
     color: #000000;

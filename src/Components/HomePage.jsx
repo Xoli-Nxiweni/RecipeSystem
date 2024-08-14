@@ -1,93 +1,44 @@
-// import { useState, useEffect } from 'react';
-// import FacebookIcon from '@mui/icons-material/Facebook';
-// import XIcon from '@mui/icons-material/X';
-// import InstagramIcon from '@mui/icons-material/Instagram';
-// import './HomePage.css';
-
-// // eslint-disable-next-line react/prop-types
-// const Heading = ({ setIsSignedIn, isSignedIn }) => {
-//     const [isSearching, setIsSearching] = useState(false);
-
-//     // Synchronize local state with prop changes
-//     useEffect(() => {
-//         // No need to manage local state for isLogged here
-//     }, [isSignedIn]);
-
-//     const toggleSearch = () => {
-//         setIsSearching(!isSearching);
-//     };
-
-//     const handleSignInSignOut = () => {
-//         if (isSignedIn) {
-//             localStorage.removeItem('user');
-//             setIsSignedIn(false);
-//         } else {
-//             // Simulate user sign-in
-//             localStorage.setItem('user', 'dummyUser'); // Simulate user sign-in
-//             setIsSignedIn(true);
-//         }
-//     };
-
-//     return (
-//         <div className="headingContainer">
-//             <div className="headerIcons">
-//                 <FacebookIcon />
-//                 <XIcon onClick={toggleSearch} />
-//                 <InstagramIcon />
-//             </div>
-//             <div className="searchLoginContainer">
-//                 <button className="Login" onClick={handleSignInSignOut}>
-//                     {isSignedIn ? 'Sign Out' : 'Sign In'}
-//                 </button>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Heading;
-
-
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { Modal, Button, Typography, Box } from '@mui/material';
 import RegistrationPage from './RegistrationPage';
 import { LoginPage } from './LoginPage';
 import './HomePage.css';
 
 // eslint-disable-next-line react/prop-types
 const Heading = ({ setIsSignedIn, isSignedIn }) => {
-    const [isSearching, setIsSearching] = useState(false);
-    const [isRegistered, setIsRegistered] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
+    const [modalType, setModalType] = useState('login'); // 'login' or 'registration'
 
-    // Synchronize local state with prop changes
-    useEffect(() => {
-        // No need to manage local state for isLogged here
-    }, []);
-
-    const toggleSearch = () => {
-        setIsSearching(!isSearching);
+    const handleOpenModal = (type) => {
+        setModalType(type);
+        setOpenModal(true);
     };
+
+    const handleCloseModal = () => setOpenModal(false);
 
     const handleSignInSignOut = () => {
         if (isSignedIn) {
             localStorage.removeItem('user');
             setIsSignedIn(false);
         } else {
-            // Simulate user sign-in
-            localStorage.setItem('user', 'dummyUser'); // Simulate user sign-in
-            setIsSignedIn(true);
+            handleOpenModal('login');
         }
     };
+
     const handleFacebookClick = () => {
-        window.location.href = 'https://facebook.com'; // Redirect to the specified URL
-      };
+        window.location.href = 'https://facebook.com'; 
+    };
+
     const handleTwitterClick = () => {
-        window.location.href = 'https://twitter.com'; // Redirect to the specified URL
-      };
+        window.location.href = 'https://twitter.com'; 
+    };
+
     const handleInstagramClick = () => {
-        window.location.href = 'https://instagram.com'; // Redirect to the specified URL
-      };
+        window.location.href = 'https://instagram.com';
+    };
 
     return (
         <div className="headingContainer">
@@ -97,19 +48,44 @@ const Heading = ({ setIsSignedIn, isSignedIn }) => {
                 <InstagramIcon onClick={handleInstagramClick} />
             </div>
             <div className="searchLoginContainer">
-                <button className="Login" onClick={handleSignInSignOut}>
+                <Button variant="contained" color="primary" onClick={handleSignInSignOut}>
                     {isSignedIn ? 'Sign Out' : 'Sign In'}
-                </button>
-                {!isSignedIn && (
-                    !isRegistered ? (
-                        <LoginPage setIsSignedIn={setIsSignedIn} setIsRegistered={setIsRegistered} />
-                    ) : (
-                        <RegistrationPage setIsRegistered={setIsRegistered} />
-                    )
-                )}
+                </Button>
+                <Modal
+                    open={openModal}
+                    onClose={handleCloseModal}
+                    aria-labelledby="modal-title"
+                    aria-describedby="modal-description"
+                >
+                    <Box sx={{ ...style, 
+                        width: 400,
+                        borderRadius: '15px',
+                        border: 0
+                        }}>
+                        <Typography id="modal-title" variant="h6" component="h2">
+                            {/* {modalType === 'login' ? 'Sign In' : 'Sign Up'} */}
+                        </Typography>
+                        {modalType === 'login' ? (
+                            <LoginPage setIsSignedIn={setIsSignedIn} setIsRegistered={(val) => setModalType(val ? 'registration' : 'login')} />
+                        ) : (
+                            <RegistrationPage setIsRegistered={(val) => setModalType(val ? 'registration' : 'login')} />
+                        )}
+                    </Box>
+                </Modal>
             </div>
         </div>
     );
+};
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
 };
 
 export default Heading;

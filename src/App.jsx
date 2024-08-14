@@ -4,14 +4,14 @@ import Heading from './Components/HomePage';
 import { Category } from './Components/Categories/Category';
 import { Head } from './Components/Head';
 import { Carousel } from './Components/Carousel/Carousel';
-import { LoginPage } from './Components/LoginPage';
+// import { LoginPage } from './Components/LoginPage';
 import { Menu } from './Components/Menu/Menu';
 import RecipeList from './Components/RecipeList';
-import RegistrationPage from './Components/RegistrationPage';
+// import RegistrationPage from './Components/RegistrationPage';
 
 function App() {
   const [isSignedIn, setIsSignedIn] = useState(false);
-  const [isRegistered, setIsRegistered] = useState(false);
+  // const [isRegistered, setIsRegistered] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
@@ -40,13 +40,13 @@ function App() {
         <Menu isSignedIn={isSignedIn} selectedCategory={selectedCategory} />
         <RecipeList isSignedIn={isSignedIn} />
       </article>
-      {!isSignedIn && (
+      {/* {!isSignedIn && (
         !isRegistered ? (
           <LoginPage setIsSignedIn={setIsSignedIn} setIsRegistered={setIsRegistered} />
         ) : (
           <RegistrationPage setIsRegistered={setIsRegistered} />
         )
-      )}
+      )} */}
     </div>
   );
 }

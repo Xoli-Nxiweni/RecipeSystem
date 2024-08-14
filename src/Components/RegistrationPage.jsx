@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import './Auth.css'; // Ensure you have appropriate styles
+import { Button, TextField, Typography, Box } from '@mui/material';
+import './Auth.css';
 
 // eslint-disable-next-line react/prop-types
 const RegistrationPage = ({ setIsRegistered }) => {
@@ -21,7 +22,6 @@ const RegistrationPage = ({ setIsRegistered }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (!formData.username || !formData.password || !formData.repeatPassword) {
       setError('Please fill in all fields.');
       return;
@@ -51,7 +51,7 @@ const RegistrationPage = ({ setIsRegistered }) => {
 
       if (response.ok) {
         alert('Registration successful. Please log in.');
-        setIsRegistered(false); // Switch to login page
+        setIsRegistered(false);
       } else {
         const result = await response.json();
         setError(result.message || 'Registration failed. Please try again.');
@@ -62,40 +62,43 @@ const RegistrationPage = ({ setIsRegistered }) => {
   };
 
   return (
-    <div className="auth-container">
-      <div className="myForm">
-        <h2>Sign Up</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="password"
-            name="repeatPassword"
-            placeholder="Repeat Password"
-            value={formData.repeatPassword}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit">Sign Up</button>
-        </form>
-        {error && <p className="error-message">{error}</p>}
-        <button onClick={() => setIsRegistered(false)}>Sign In</button>
-      </div>
-    </div>
+    <Box>
+      <Typography variant="h6" component="h2">Sign Up</Typography>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          label="Username"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          fullWidth
+          margin="normal"
+          required
+        />
+        <TextField
+          label="Password"
+          name="password"
+          type="password"
+          value={formData.password}
+          onChange={handleChange}
+          fullWidth
+          margin="normal"
+          required
+        />
+        <TextField
+          label="Repeat Password"
+          name="repeatPassword"
+          type="password"
+          value={formData.repeatPassword}
+          onChange={handleChange}
+          fullWidth
+          margin="normal"
+          required
+        />
+        <Button type="submit" variant="contained" color="primary">Sign Up</Button>
+        {error && <Typography color="error">{error}</Typography>}
+        <Button onClick={() => setIsRegistered(false)}>Sign In</Button>
+      </form>
+    </Box>
   );
 };
 
