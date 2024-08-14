@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Carousel.css';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
@@ -28,40 +28,52 @@ export const Carousel = () => {
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const carouselRef = useRef(null);
 
     useEffect(() => {
         const autoPlay = setInterval(() => {
             handleNextClick();
-        }, 3000); // Change slide every 5 seconds
+        }, 3000); 
 
-        return () => clearInterval(autoPlay); // Cleanup interval on component unmount
+        return () => clearInterval(autoPlay);
     }, [currentIndex]);
 
     const handlePrevClick = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === 0 ? recipes.length - 1 : prevIndex - 1));
+        setCurrentIndex(prevIndex => (prevIndex === 0 ? recipes.length - 1 : prevIndex - 1));
     };
 
     const handleNextClick = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === recipes.length - 1 ? 0 : prevIndex + 1));
+        setCurrentIndex(prevIndex => (prevIndex === recipes.length - 1 ? 0 : prevIndex + 1));
     };
+
+    useEffect(() => {
+        if (carouselRef.current) {
+            carouselRef.current.style.transition = 'transform 0.5s ease-in-out';
+            carouselRef.current.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    }, [currentIndex]);
 
     return (
         <div className='Carousel'>
-            <div className="container">
-                <button onClick={handlePrevClick} className='carouselLeft'>
-                    <ArrowLeftIcon />
-                </button>
-                <div className="carouselContent">
-                    <img src={recipes[currentIndex].image} alt={recipes[currentIndex].name} />
-                    <div className="texts">
-                        <h1>{recipes[currentIndex].name}</h1>
-                        <p>{recipes[currentIndex].description}</p>
-                    </div>
+            <div className="carouselWrapper">
+                <div className="container" ref={carouselRef}>
+                    {recipes.map((recipe, index) => (
+                        <div key={index} className="carouselContent">
+                            <img src={recipe.image} alt={recipe.name} />
+                            <div className="texts">
+                                <h1>{recipe.name}</h1>
+                                <p>{recipe.description}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
-                <button onClick={handleNextClick} className='carouselRight'>
-                    <ArrowRightIcon />
-                </button>
             </div>
+            <button onClick={handlePrevClick} className='carouselLeft'>
+                <ArrowLeftIcon />
+            </button>
+            <button onClick={handleNextClick} className='carouselRight'>
+                <ArrowRightIcon />
+            </button>
         </div>
     );
 };

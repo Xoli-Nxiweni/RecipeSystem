@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchRecipes, deleteRecipe } from './API';
+// import PropTypes from 'prop-types'; // Uncomment if you want to use PropTypes
 
 // eslint-disable-next-line react/prop-types
 const RecipeList = ({ searchTerm = '', setEditingRecipe, isSignedIn }) => {
@@ -12,7 +13,7 @@ const RecipeList = ({ searchTerm = '', setEditingRecipe, isSignedIn }) => {
         const data = await fetchRecipes();
         setRecipes(data);
       } catch (err) {
-        setError('Failed to fetch recipes.');
+        setError('Failed to fetch recipes.', err);
       }
     };
     getRecipes();
@@ -24,7 +25,7 @@ const RecipeList = ({ searchTerm = '', setEditingRecipe, isSignedIn }) => {
       await deleteRecipe(id);
       setRecipes(recipes.filter(recipe => recipe.id !== id));
     } catch (err) {
-      setError('Failed to delete recipe.');
+      setError('Failed to delete recipe.', err);
     }
   };
 
@@ -36,6 +37,10 @@ const RecipeList = ({ searchTerm = '', setEditingRecipe, isSignedIn }) => {
   const filteredRecipes = recipes.filter(recipe =>
     recipe.name?.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  // if (filteredRecipes.length === 0) {
+  //   return <p>No recipes found.</p>;
+  // }
 
   return (
     <div className="recipe-list">
@@ -55,5 +60,12 @@ const RecipeList = ({ searchTerm = '', setEditingRecipe, isSignedIn }) => {
     </div>
   );
 };
+
+// Uncomment if you want to enforce prop types
+// RecipeList.propTypes = {
+//   searchTerm: PropTypes.string,
+//   setEditingRecipe: PropTypes.func.isRequired,
+//   isSignedIn: PropTypes.bool.isRequired,
+// };
 
 export default RecipeList;

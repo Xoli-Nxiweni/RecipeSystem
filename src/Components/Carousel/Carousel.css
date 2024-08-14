@@ -1,41 +1,36 @@
-.container {
+.Carousel {
+    position: relative;
+    width: 100%;
+    height: 350px; 
+    overflow: hidden; 
+    padding:  0 10%;
+}
+
+.carouselWrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20em;
     overflow: hidden;
     position: relative;
-    gap: 15px;
-    margin: 0 10%;
+    height: 100%;
 }
 
-.container button {
-    border: 0;
-    background: rgba(116, 116, 116, 0.3); 
-    cursor: pointer;
-    border-radius: 15%; /* Circular buttons */
-    padding: 10px; 
-}
-
-.container button svg {
-    font-size: 3em; /* Reduced font size for better fit */
-    color: #000; /* Ensures better visibility on light backgrounds */
+.container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+    height: 100%;
 }
 
 .carouselContent {
-    position: relative;
-    /* width: 100%; */
-    /* height: 100%; */
-    object-fit: contain;
-    overflow: hidden;
+    min-width: 100%; 
+    box-sizing: border-box; 
+    height: 100%;
+    position: relative; 
 }
 
-.carouselContent p,
-.carouselContent h1 {
-    text-align: center;
-    font-size: 1.2em;
-    color: #fff;
-    margin: 0;
+.carouselContent img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
 }
 
 .texts {
@@ -47,19 +42,49 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.carouselLeft, .carouselRight {
+    border: 0;
+    background: rgba(116, 116, 116, 0.344);
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 10px;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carouselLeft {
+    left: 10px;
+}
+
+.carouselRight {
+    right: 10px;
+}
+
+.carouselLeft svg, .carouselRight svg {
+    font-size: 3em;
+    color: #fff;
 }
 
 @media (max-width: 1387px) {
-    .container button svg {
-        font-size: 3em; /* Adjusted for smaller screens */
+    .carouselLeft svg, .carouselRight svg {
+        font-size: 2.5em;
+    }
+}
+@media (max-width: 860px) {
+    .texts {
+        font-size: .6em;
     }
 }
 
 @media (max-width: 768px) {
-    .container {
-        margin: 0 5%; /* Reduce margin on smaller screens */
-    }
-    .container button svg {
-        font-size: 2.5em; /* Smaller buttons for smaller screens */
+    .carouselLeft svg, .carouselRight svg {
+        font-size: 3em;
     }
 }

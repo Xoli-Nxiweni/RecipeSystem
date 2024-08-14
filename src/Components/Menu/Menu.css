@@ -3,7 +3,7 @@
     padding: 0 10%;
 }
 .menu h3{
-    font-size: 3em;
+    font-size: 2em;
 }
 .card{
     display: flex;
@@ -38,6 +38,7 @@
     border-radius: 5px;
     background: #000;
     color: #fff;
+    text-transform: uppercase;
 }
 .cardsContainer button:hover{
     background: #555555;
@@ -69,6 +70,15 @@ svg:hover{
     background: white;
     border: 0;
     outline: 0;
+}
+.add-recipe{
+    background: #000;
+    color: #fff;
+    padding: 10px 5px;
+    border: 0;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 @media (max-width: 1773px) {

@@ -1,27 +1,31 @@
 import { useState, useEffect } from 'react';
-import { fetchRecipes, deleteRecipe } from './../API';
+import { fetchRecipes, deleteRecipe, addRecipe, updateRecipe } from './../API'; 
 import RecipeForm from '../RecipeForm';
 import SearchIcon from '@mui/icons-material/Search';
 import { Modal, Box, Typography, Button } from '@mui/material';
 import './Menu.css';
 
-export const Menu = () => {
+// eslint-disable-next-line react/prop-types
+export const Menu = ({ isSignedIn, selectedCategory }) => {
   const [recipes, setRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
-  const [isAdding, setIsAdding] = useState(false);
-  const [recipeToEdit, setRecipeToEdit] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [viewingRecipe, setViewingRecipe] = useState(null);
   const [openViewModal, setOpenViewModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
+  const [openAddModal, setOpenAddModal] = useState(false);
+  const [recipeToEdit, setRecipeToEdit] = useState(null);
 
   useEffect(() => {
     const loadRecipes = async () => {
       try {
         const fetchedRecipes = await fetchRecipes();
-        setRecipes(fetchedRecipes);
-        setFilteredRecipes(fetchedRecipes); // Initialize filtered recipes
+        // Ensure there are no duplicate IDs
+        const uniqueRecipes = Array.from(new Set(fetchedRecipes.map(recipe => recipe.id)))
+          .map(id => fetchedRecipes.find(recipe => recipe.id === id));
+        setRecipes(uniqueRecipes);
+        setFilteredRecipes(uniqueRecipes);
       } catch (error) {
         console.error('Error fetching recipes:', error);
       }
@@ -31,32 +35,36 @@ export const Menu = () => {
   }, []);
 
   useEffect(() => {
-    if (searchTerm) {
-      setFilteredRecipes(
-        recipes.filter(recipe =>
-          recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
-        )
+    let filtered = recipes;
+
+    if (selectedCategory && selectedCategory !== 'everything') {
+      filtered = filtered.filter(recipe =>
+        // eslint-disable-next-line react/prop-types
+        recipe.category.toLowerCase() === selectedCategory.toLowerCase()
       );
-    } else {
-      setFilteredRecipes(recipes);
     }
-  }, [searchTerm, recipes]);
+
+    if (searchTerm) {
+      filtered = filtered.filter(recipe =>
+        recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    setFilteredRecipes(filtered);
+  }, [selectedCategory, searchTerm, recipes]);
 
   const handleEdit = (recipe) => {
-    setRecipeToEdit(recipe);
-    setIsAdding(true);
     setOpenEditModal(true);
+    setRecipeToEdit(recipe);
   };
 
   const handleRemove = async (id) => {
-    if (window.confirm('Are you sure you want to remove this recipe?')) {
-      try {
-        await deleteRecipe(id);
-        setRecipes(recipes.filter(recipe => recipe.id !== id));
-        setFilteredRecipes(filteredRecipes.filter(recipe => recipe.id !== id));
-      } catch (error) {
-        console.error('Error deleting recipe:', error);
-      }
+    try {
+      await deleteRecipe(id);
+      setRecipes(recipes.filter(recipe => recipe.id !== id));
+      setFilteredRecipes(filteredRecipes.filter(recipe => recipe.id !== id));
+    } catch (error) {
+      console.error('Error deleting recipe:', error);
     }
   };
 
@@ -73,18 +81,40 @@ export const Menu = () => {
   const handleCloseEditModal = () => {
     setOpenEditModal(false);
     setRecipeToEdit(null);
-    setIsAdding(false);
   };
 
-  const handleSave = async () => {
+  const handleCloseAddModal = () => {
+    setOpenAddModal(false);
+  };
+
+  const handleSave = async (updatedRecipe) => {
     try {
+      await updateRecipe(recipeToEdit.id, updatedRecipe);
       const fetchedRecipes = await fetchRecipes();
-      setRecipes(fetchedRecipes);
-      setFilteredRecipes(fetchedRecipes);
+      // Ensure there are no duplicate IDs
+      const uniqueRecipes = Array.from(new Set(fetchedRecipes.map(recipe => recipe.id)))
+        .map(id => fetchedRecipes.find(recipe => recipe.id === id));
+      setRecipes(uniqueRecipes);
+      setFilteredRecipes(uniqueRecipes);
     } catch (error) {
       console.error('Error saving recipe:', error);
     }
     handleCloseEditModal();
+  };
+
+  const handleAdd = async (newRecipe) => {
+    try {
+      await addRecipe(newRecipe);
+      const fetchedRecipes = await fetchRecipes();
+      // Ensure there are no duplicate IDs
+      const uniqueRecipes = Array.from(new Set(fetchedRecipes.map(recipe => recipe.id)))
+        .map(id => fetchedRecipes.find(recipe => recipe.id === id));
+      setRecipes(uniqueRecipes);
+      setFilteredRecipes(uniqueRecipes);
+    } catch (error) {
+      console.error('Error adding recipe:', error);
+    }
+    handleCloseAddModal();
   };
 
   const handleSearchTerm = (e) => {
@@ -116,21 +146,35 @@ export const Menu = () => {
         </button>
       </div>
       <div className="cardsContainer">
-        {filteredRecipes.map(recipe => (
-          <div key={recipe.id} className="card">
-            <img src={recipe.imgSrc} alt={recipe.title} />
-            <h5>{recipe.title}</h5>
-            <p>{recipe.description}</p>
-            <p>{recipe.ingredients}</p>
-            <div className="cardsBtn">
-              <button onClick={() => handleEdit(recipe)}>Edit</button>
-              <button onClick={() => handleRemove(recipe.id)}>Remove</button>
-              <button onClick={() => handleView(recipe)}>View</button>
+        {filteredRecipes.length > 0 ? (
+          filteredRecipes.map(recipe => (
+            <div key={recipe.id} className="card">
+              <img src={recipe.imgSrc} alt={recipe.title} />
+              <h5>{recipe.title}</h5>
+              <p>{recipe.description}</p>
+              <p><strong>Ingredients:</strong> {recipe.ingredients}</p>
+              <p><strong>Category:</strong> {recipe.category}</p>
+              <div className="cardsBtn">
+                {isSignedIn && (
+                  <>
+                    <button onClick={() => handleEdit(recipe)}>Edit</button>
+                    <button onClick={() => handleRemove(recipe.id)}>Remove</button>
+                  </>
+                )}
+                <button onClick={() => handleView(recipe)}>Recipe</button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>No recipes found</p>
+        )}
       </div>
-      <button className="add-recipe" onClick={() => setIsAdding(true)}>Add Recipe</button>
+
+      {isSignedIn && (
+        <button className="add-recipe" onClick={() => setOpenAddModal(true)}>
+          Add Recipe
+        </button>
+      )}
 
       {/* Modal for Viewing Recipe */}
       <Modal
@@ -155,6 +199,18 @@ export const Menu = () => {
         >
           {viewingRecipe && (
             <>
+              <Typography id="view-recipe-title" variant="image" component="div">
+                <img 
+                  src={viewingRecipe.imgSrc} 
+                  style={{
+                    width: '170px', 
+                    margin: '0 auto',
+                    height: '120px',
+                    objectFit: 'cover'
+                  }} 
+                  alt={viewingRecipe.title}
+                />
+              </Typography>
               <Typography id="view-recipe-title" variant="h6" component="h2">
                 {viewingRecipe.title}
               </Typography>
@@ -167,6 +223,18 @@ export const Menu = () => {
               <Typography sx={{ mt: 2 }}>
                 <strong>Instructions:</strong> {viewingRecipe.instructions}
               </Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Category:</strong> {viewingRecipe.category}
+              </Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Prep Time:</strong> {viewingRecipe.preparationTime} mins
+              </Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Cook Time:</strong> {viewingRecipe.cookingTime} mins
+              </Typography>
+              <Typography sx={{ mt: 1 }}>
+                <strong>Servings:</strong> {viewingRecipe.servings}
+              </Typography>
               <Button onClick={handleCloseViewModal} sx={{ mt: 2 }}>
                 Close
               </Button>
@@ -177,7 +245,7 @@ export const Menu = () => {
 
       {/* Modal for Editing Recipe */}
       <Modal
-        sx={{ backdropFilter: 'blur(10px)' }}
+        sx={{ backdropFilter: 'blur(10px)', height: '100vh' }}
         open={openEditModal}
         onClose={handleCloseEditModal}
         aria-labelledby="edit-recipe-title"
@@ -188,25 +256,52 @@ export const Menu = () => {
             position: 'absolute',
             top: '50%',
             left: '50%',
+            textAlign: 'left',
             transform: 'translate(-50%, -50%)',
-            width: 400,
+            width: 450,
+            height: 'auto',
             bgcolor: '#fff',
             boxShadow: 24,
             p: 4,
             borderRadius: '10px',
           }}
         >
-          {recipeToEdit && (
-            <>
-              <Typography id="edit-recipe-title" variant="h6" component="h2">
-                Edit Recipe
-              </Typography>
-              <RecipeForm recipeToEdit={recipeToEdit} onSave={handleSave} />
-              <Button onClick={handleCloseEditModal} sx={{ mt: 2 }}>
-                Cancel
-              </Button>
-            </>
-          )}
+          <RecipeForm
+            recipeToEdit={recipeToEdit}
+            onAdd={handleAdd}
+            onSave={handleSave}
+            isAdding={false} // Indicates editing mode
+          />
+        </Box>
+      </Modal>
+
+      {/* Modal for Adding Recipe */}
+      <Modal
+        sx={{ backdropFilter: 'blur(10px)', height: '100vh' }}
+        open={openAddModal}
+        onClose={handleCloseAddModal}
+        aria-labelledby="add-recipe-title"
+        aria-describedby="add-recipe-description"
+      >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            textAlign: 'left',
+            transform: 'translate(-50%, -50%)',
+            width: 450,
+            height: 'auto',
+            bgcolor: '#fff',
+            boxShadow: 24,
+            p: 4,
+            borderRadius: '10px',
+          }}
+        >
+          <RecipeForm
+            onSave={handleAdd}
+            isAdding={true} // Indicates adding mode
+          />
         </Box>
       </Modal>
     </div>
